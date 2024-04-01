@@ -1,0 +1,86 @@
+<h1>student Details</h1>
+<form [formGroup]="studentForm" (submit)="studentDataAdd()">
+  <label>Enrollemnt Number</label><br />
+  <input
+    type="number"
+    name="eNumber"
+    id="eNumber"
+    formControlName="eNumber"
+  /><br />
+  <label>Student Name</label><br />
+  <input type="text" name="sName" id="sName" formControlName="sName" /><br />
+  <label>Machine Learning</label><br />
+  <input
+    type="number"
+    name="mlMarks"
+    id="mlMarks"
+    formControlName="mlMarks"
+  /><br />
+  <label>Design Pattern</label><br />
+  <input
+    type="number"
+    name="dpMarks"
+    id="dpMarks"
+    formControlName="dpMarks"
+  /><br />
+  <label>BlockChain</label><br />
+  <input
+    type="number"
+    name="bctMarks"
+    id="bctMarks"
+    formControlName="bctMarks"
+  /><br />
+  <br />
+  <input type="submit" value="Add Data" />
+  <br />
+  <br />
+  <input type="button" value="Show Data" (click)="showData()" />
+</form>
+
+<ul>
+  @for (student of studentData; track student.id){
+  <li>{{ student._id }}</li>
+  <li>{{ student.sName }}</li>
+  <input type="button" value="update" (click)="setUpdateForm(student)"/>
+  <input type="button" value="delete"  (click)="deleteData(student._id)"/>
+  }@empty{
+  <span>not show the data</span>
+  }
+</ul>
+
+<h2>Update Student</h2>
+<form [formGroup]="updateForm" (submit)="updateData()">
+  <label>Enrollemnt Number</label><br />
+  <input
+    type="number"
+    name="eNumber"
+    id="eNumber"
+    formControlName="eNumber"
+  /><br />
+  <label>Student Name</label><br />
+  <input type="text" name="sName" id="sName" formControlName="sName" /><br />
+  <label>Machine Learning</label><br />
+  <input
+    type="number"
+    name="mlMarks"
+    id="mlMarks"
+    formControlName="mlMarks"
+  /><br />
+  <label>Design Pattern</label><br />
+  <input
+    type="number"
+    name="dpMarks"
+    id="dpMarks"
+    formControlName="dpMarks"
+  /><br />
+  <label>BlockChain</label><br />
+  <input
+    type="number"
+    name="bctMarks"
+    id="bctMarks"
+    formControlName="bctMarks"
+  /><br />
+  <br />
+  <input type="hidden" formControlName="id" />
+  <input type="submit" value="Update Data" />
+</form>
